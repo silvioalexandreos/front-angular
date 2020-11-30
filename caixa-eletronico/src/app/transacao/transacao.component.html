@@ -1,14 +1,52 @@
-<form>
-  <div>
+<form #saqueForm="ngForm">
+  <div class="form-group">
     <select class="form-control form-control-lg">
       <option>Saque</option>
-      <option>Depósito</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label for="Valor">Valor</label>
-    <input type="numer" class="form-control" id="valor" placeholder="Digite o valor com números">
+    <label for="saldo">Valor</label>
+    <input type="numer" class="form-control" id="saldo" [(ngModel)]="saquee.saldo"
+    #nome="ngModel"  placeholder="Digite o valor com números">
+    <label for="nota5">5</label>
+    <input type="numer" class="form-control" id="nota5" [(ngModel)]="saquee.notas5"
+    #nome="ngModel" placeholder="Digite o valor com números">
+    <label for="nota10">10</label>
+    <input type="numer" class="form-control" id="nota10" [(ngModel)]="saquee.notas10"
+    #nome="ngModel" placeholder="Digite o valor com números">
+    <label for="nota20">20</label>
+    <input type="numer" class="form-control" id="nota20" [(ngModel)]="saquee.notas20"
+    #nome="ngModel" placeholder="Digite o valor com números">
+    <label for="nota50">50</label>
+    <input type="numer" class="form-control" id="nota50" [(ngModel)]="saquee.notas50"
+    #nome="ngModel" placeholder="Digite o valor com números">
+    <label for="nota100">100</label>
+    <input type="numer" class="form-control" id="nota100" [(ngModel)]="saquee.notas100"
+    #nome="ngModel" placeholder="Digite o valor com números">
   </div>
-  <button type="submit" class="btn btn-primary">Salvar</button>
+  <button type="submit" class="btn btn-primary" (click)="saque()">Salvar</button>
 </form>
+
+<tr *ngFor="let saque of saques">
+  <td>
+    {{ saque.saldo }}
+  </td>
+  <td>
+    {{ saque.notas5 }}
+  </td>
+  <td>
+    {{ saque.notas10 }}
+  </td>
+  <td>
+    {{ saque.notas20 }}
+  </td>
+  <td>
+    {{ saque.notas50 }}
+  </td>
+  <td>
+    {{ saque.notas100 }}
+  </td>
+</tr>
+
+

@@ -13,13 +13,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { CadastrarClienteComponent } from './cadastrar-cliente/cadastrar-cliente.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ClienteComponent,
     TransacaoComponent,
     MenuComponent,
-    CadastrarClienteComponent
+    CadastrarClienteComponent,
   ],
   imports: [
     BrowserModule,
