@@ -7,11 +7,6 @@ import { Subject } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-
-
-
-
-
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
