@@ -14,7 +14,6 @@ export class ClienteService {
 
   constructor( private http: HttpClient ) { }
 
-
   listarTodos(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.baseURL);
   }
