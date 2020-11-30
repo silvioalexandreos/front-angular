@@ -23,12 +23,9 @@ export class ClienteService {
     return this.http.get<Cliente>(`${this.baseURL}/${id}`);
   }
 
-  getByDisciplinaId(id: number): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(`${this.baseURL}/ByDisciplina/${id}`);
-  }
 
-  post(cliente: Cliente) {
-    return this.http.post(this.baseURL, cliente);
+  salvar(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.baseURL, cliente);
   }
 
   put(cliente: Cliente) {

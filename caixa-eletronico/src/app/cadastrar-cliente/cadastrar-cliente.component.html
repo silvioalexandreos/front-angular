@@ -3,7 +3,7 @@
 <div class="well">
   <form #formCliente="ngForm">
     <div class="form-group">
-      <div>
+
         <label for="nome">Cliente:</label>
       <input
         type="text"
@@ -14,29 +14,26 @@
         #nome="ngModel"
         minlength="5"
         required>
-      </div>
 
-      <div>
-        <label for="nome">Valor:</label>
+
+
+        <label for="saldo">Valor:</label>
       <input
-        type="text"
+        type="number"
         class="form-control"
         id="saldo"
         name="saldo"
         [(ngModel)]="cliente.saldo"
-        #nome="ngModel"
+        #valor="ngModel"
         minlength="1"
         required>
-      </div>
+
 
       <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
         <div [hidden]="!nome.errors.required">
           Cadastre o cliente.
         </div>
         <div [hidden]="!nome.errors.miilength">
-          O nome do cliente deve conter ao menos 5 caracteres.
-        </div>
-        <div >
           O nome do cliente deve conter ao menos 5 caracteres.
         </div>
       </div>
@@ -48,7 +45,7 @@
         (click)="cadastrar()"
         value="Cadastrar"
         [disabled]="!formCliente.form.valid">
-      <a [routerLink]="['/cliente']"
+      <a [routerLink]="['/cliente/']"
         class="btn btn-default">
         <span class="glyphicon glyphicon-chevron-left"
           aria-hidden="true"></span> Voltar
