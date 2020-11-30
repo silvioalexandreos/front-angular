@@ -4,9 +4,10 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { ClienteService } from './shared';
+import { EditarClienteComponent } from '../editar-cliente/editar-cliente.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [EditarClienteComponent],
   providers: [
     ClienteService
   ],

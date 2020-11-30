@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente',
@@ -30,10 +30,34 @@ export class ClienteComponent implements OnInit {
   constructor(
     private clienteService: ClienteService,
     private route: ActivatedRoute,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
     this.listarTodos();
+  }
+
+  saveCliente(): void {
+    if (this.clienteForm.valid) {
+
+
+      if (this.modeSave === 'post') {
+        this.cliente = {...this.clienteForm.value};
+      } else {
+        this.cliente = {id: this.clienteSelecionado.id, ...this.clienteForm.value};
+      }
+
+      this.clienteService[this.modeSave](this.cliente)
+        .pipe(takeUntil(this.unsubscriber))
+        .subscribe(
+          () => {
+            this.listarTodos();
+          }, (error: any) => {
+
+            console.error(error.message);
+          },
+        );
+    }
   }
 
   listarTodos(): void {
@@ -57,4 +81,27 @@ export class ClienteComponent implements OnInit {
     this.clienteSelecionado = cliente;
     this.clienteForm.patchValue(cliente);
   }
+
+  atualizarCliente(): void{
+    if (this.clienteForm.valid) {
+
+
+      if (this.modeSave === 'put') {
+        this.cliente = {...this.clienteForm.value};
+      } else {
+        this.cliente = {id: this.clienteSelecionado.id, ...this.clienteForm.value};
+      }
+
+      this.clienteService[this.modeSave](this.cliente)
+        .pipe(takeUntil(this.unsubscriber))
+        .subscribe(
+          () => {
+            this.listarTodos();
+          }, (error: any) => {
+
+            console.error(error.message);
+          },
+        );
+  }
+}
 }
